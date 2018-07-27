@@ -1,6 +1,6 @@
 {
   "name": "openwhisk-fqn",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Javascript library to convert an OpenWhisk entity name to a fully qualified name.",
   "homepage": "https://github.com/ibm-functions/openwhisk-fqn",
   "main": "fqn.js",
