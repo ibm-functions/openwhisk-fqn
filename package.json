@@ -1,0 +1,34 @@
+{
+  "name": "openwhisk-fqn",
+  "version": "0.0.1",
+  "description": "Javascript library to convert an OpenWhisk entity name to a fully qualified name.",
+  "homepage": "https://github.com/ibm-functions/openwhisk-fqn",
+  "main": "fqn.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "fqn.js"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ibm-functions/openwhisk-fqn.git"
+  },
+  "keywords": [
+    "openwhisk"
+  ],
+  "devDependencies": {
+    "mocha": "^5.2.0"
+  },
+  "author": {
+    "name": "Olivier Tardieu",
+    "email": "tardieu@us.ibm.com"
+  },
+  "contributors": [
+    {
+      "name": "Rodric Rabbah",
+      "email": "rodric@gmail.com"
+    }
+  ],
+  "license": "Apache-2.0"
+}
