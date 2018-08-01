@@ -15,48 +15,50 @@
  * limitations under the License.
  */
 
-'use strict' 
+/* eslint-env mocha */
+
+'use strict'
 
 const assert = require('assert')
 const fqn = require('../fqn')
 
 describe('fqn', function () {
-    let combos = [
-        { n: undefined, s: false, e: 'Name must be a string' },
-        { n: null, s: false, e: 'Name must be a string' },
-        { n: 0, s: false, e: 'Name must be a string' },
-        { n: 42, s: false, e: 'Name must be a string' },
-        { n: true, s: false, e: 'Name must be a string' },
-        { n: false, s: false, e: 'Name must be a string' },
-        { n: '', s: false, e: 'Name is not valid' },
-        { n: ' ', s: false, e: 'Name is not valid' },
-        { n: '/', s: false, e: 'Name is not valid' },
-        { n: '//', s: false, e: 'Name is not valid' },
-        { n: '/a', s: false, e: 'Name is not valid' },
-        { n: '/a/b/c/d', s: false, e: 'Name is not valid' },
-        { n: '/a/b/c/d/', s: false, e: 'Name is not valid' },
-        { n: 'a/b/c/d', s: false, e: 'Name is not valid' },
-        { n: '/a/ /b', s: false, e: 'Name is not valid' },
-        { n: 'a', e: false, s: '/_/a' },
-        { n: 'a/b', e: false, s: '/_/a/b' },
-        { n: 'a/b/c', e: false, s: '/a/b/c' },
-        { n: '/a/b', e: false, s: '/a/b' },
-        { n: '/a/b/c', e: false, s: '/a/b/c' }
-    ]
-    combos.forEach(({ n, s, e }) => {
-        it(typeof n === 'string' ? `'${n}'` : `${n}`, function () {
-            if (s) {
-                // good cases
-                assert.equal(fqn(n), s)
-            } else {
-                // error cases
-                try {
-                    fqn(n)
-                    assert.fail()
-                } catch (error) {
-                    assert.ok(error.message.startsWith(e))
-                }
-            }
-        })
+  let combos = [
+    { n: undefined, s: false, e: 'Name must be a string' },
+    { n: null, s: false, e: 'Name must be a string' },
+    { n: 0, s: false, e: 'Name must be a string' },
+    { n: 42, s: false, e: 'Name must be a string' },
+    { n: true, s: false, e: 'Name must be a string' },
+    { n: false, s: false, e: 'Name must be a string' },
+    { n: '', s: false, e: 'Name is not valid' },
+    { n: ' ', s: false, e: 'Name is not valid' },
+    { n: '/', s: false, e: 'Name is not valid' },
+    { n: '//', s: false, e: 'Name is not valid' },
+    { n: '/a', s: false, e: 'Name is not valid' },
+    { n: '/a/b/c/d', s: false, e: 'Name is not valid' },
+    { n: '/a/b/c/d/', s: false, e: 'Name is not valid' },
+    { n: 'a/b/c/d', s: false, e: 'Name is not valid' },
+    { n: '/a/ /b', s: false, e: 'Name is not valid' },
+    { n: 'a', e: false, s: '/_/a' },
+    { n: 'a/b', e: false, s: '/_/a/b' },
+    { n: 'a/b/c', e: false, s: '/a/b/c' },
+    { n: '/a/b', e: false, s: '/a/b' },
+    { n: '/a/b/c', e: false, s: '/a/b/c' }
+  ]
+  combos.forEach(({ n, s, e }) => {
+    it(typeof n === 'string' ? `'${n}'` : `${n}`, function () {
+      if (s) {
+        // good cases
+        assert.equal(fqn(n), s)
+      } else {
+        // error cases
+        try {
+          fqn(n)
+          assert.fail()
+        } catch (error) {
+          assert.ok(error.message.startsWith(e))
+        }
+      }
     })
+  })
 })

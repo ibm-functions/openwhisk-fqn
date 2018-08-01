@@ -5,7 +5,7 @@
   "homepage": "https://github.com/ibm-functions/openwhisk-fqn",
   "main": "fqn.js",
   "scripts": {
-    "test": "mocha"
+    "test": "standard && mocha"
   },
   "files": [
     "fqn.js"
@@ -18,7 +18,9 @@
     "openwhisk"
   ],
   "devDependencies": {
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "pre-commit": "^1.2.2",
+    "standard": "^11.0.1"
   },
   "author": {
     "name": "Olivier Tardieu",

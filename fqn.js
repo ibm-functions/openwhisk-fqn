@@ -27,19 +27,19 @@
  *   /ns/pkg/foo => /ns/pkg/foo
  */
 module.exports = function (name) {
-    if (typeof name !== 'string') throw new Error('Name must be a string')
-    if (name.trim().length == 0) throw new Error('Name is not valid')
-    name = name.trim()
-    const delimiter = '/'
-    const parts = name.split(delimiter)
-    const n = parts.length
-    const leadingSlash = name[0] == delimiter
-    // no more than /ns/p/a
-    if (n < 1 || n > 4 || (leadingSlash && n == 2) || (!leadingSlash && n == 4)) throw new Error('Name is not valid')
-    // skip leading slash, all parts must be non empty (could tighten this check to match EntityName regex)
-    parts.forEach(function (part, i) { if (i > 0 && part.trim().length == 0) throw new Error('Name is not valid') })
-    const newName = parts.join(delimiter)
-    if (leadingSlash) return newName
-    else if (n < 3) return `${delimiter}_${delimiter}${newName}`
-    else return `${delimiter}${newName}`
+  if (typeof name !== 'string') throw new Error('Name must be a string')
+  if (name.trim().length === 0) throw new Error('Name is not valid')
+  name = name.trim()
+  const delimiter = '/'
+  const parts = name.split(delimiter)
+  const n = parts.length
+  const leadingSlash = name[0] === delimiter
+  // no more than /ns/p/a
+  if (n < 1 || n > 4 || (leadingSlash && n === 2) || (!leadingSlash && n === 4)) throw new Error('Name is not valid')
+  // skip leading slash, all parts must be non empty (could tighten this check to match EntityName regex)
+  parts.forEach(function (part, i) { if (i > 0 && part.trim().length === 0) throw new Error('Name is not valid') })
+  const newName = parts.join(delimiter)
+  if (leadingSlash) return newName
+  else if (n < 3) return `${delimiter}_${delimiter}${newName}`
+  else return `${delimiter}${newName}`
 }
