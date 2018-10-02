@@ -49,7 +49,7 @@ describe('fqn', function () {
     it(typeof n === 'string' ? `'${n}'` : `${n}`, function () {
       if (s) {
         // good cases
-        assert.equal(fqn(n), s)
+        assert.strictEqual(fqn(n), s)
       } else {
         // error cases
         try {
